@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - rbx-19mode
+  - jruby
+script: rake test
+env:
+  - DEVISE_ORM=active_record
+  - DEVISE_ORM=mongoid
+services:
+  - mongodb
+matrix:
+  allow_failures:
+    - rvm: jruby
+    - rvm: rbx-19mode
+    - rvm: 2.0.0
